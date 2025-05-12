@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
                 isRunning = true
                 isPaused = false
 
-                // Aggiorna visibilità
                 checkVisibility()
             }
         }
@@ -54,7 +53,6 @@ class MainActivity : ComponentActivity() {
                 isRunning = false
                 isPaused = true
 
-                // Aggiorna visibilità
                 checkVisibility()
             }
         }
@@ -66,28 +64,17 @@ class MainActivity : ComponentActivity() {
             isRunning = false
             isPaused = false
 
-            // Aggiorna visibilità
             checkVisibility()
         }
 
         resetButton.setOnClickListener {
+            instanceFlag()
             chronoText.base = SystemClock.elapsedRealtime()
             pauseOffset = 0
         }
 
         flagButton.setOnClickListener {
-            count += 1
-            val elapsedMillis = SystemClock.elapsedRealtime() - chronoText.base
-            val newFlag = "${count}: ${elapsedMillis / 1000}s\n"
-
-            val currentText = flagsText.text.toString()
-            val updatedText = if (count > 10) {
-                currentText.substringAfter("\n") + newFlag
-            } else {
-                currentText + newFlag
-            }
-
-            flagsText.text = updatedText
+            instanceFlag()
         }
     }
 
@@ -112,5 +99,20 @@ class MainActivity : ComponentActivity() {
             stopButton.visibility = Button.GONE
             resetButton.visibility = Button.GONE
         }
+    }
+
+    private fun instanceFlag() {
+        count += 1
+        val elapsedMillis = SystemClock.elapsedRealtime() - chronoText.base
+        val newFlag = "${count}: ${elapsedMillis / 1000}s\n"
+
+        val currentText = flagsText.text.toString()
+        val updatedText = if (count > 10) {
+            currentText.substringAfter("\n") + newFlag
+        } else {
+            currentText + newFlag
+        }
+
+        flagsText.text = updatedText
     }
 }
