@@ -112,9 +112,9 @@ class MainActivity : ComponentActivity() {
                 newFlag += "0"
             }
             newFlag += "${minutes}'"
-        }
-        if (seconds<10 && minutes>0){
-            newFlag += "0"
+            if (seconds<10){
+                newFlag += "0"
+            }
         }
         newFlag += "${seconds}''\n"
 
