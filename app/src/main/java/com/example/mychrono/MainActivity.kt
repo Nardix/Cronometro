@@ -106,15 +106,9 @@ class MainActivity : ComponentActivity() {
         val elapsedMillis = SystemClock.elapsedRealtime() - chronoText.base
         val minutes = (elapsedMillis / 1000) / 60
         val seconds = (elapsedMillis / 1000) % 60
-        var newFlag = "${count}: "
+        var newFlag = "${count}:  "
         if (minutes>0){
-            if (minutes<10){
-                newFlag += "0"
-            }
-            newFlag += "${minutes}'"
-            if (seconds<10){
-                newFlag += "0"
-            }
+            newFlag += "${minutes}' "
         }
         newFlag += "${seconds}''\n"
 

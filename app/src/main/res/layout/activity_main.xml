@@ -3,36 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="24dp">
 
-    <Chronometer
-        android:id="@+id/chronoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="70sp"
-        android:textAlignment="center" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
-
-        <TextView
-            android:id="@+id/flagsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/flagged_time"
-            android:gravity="center"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Chronometer
+                android:id="@+id/chronoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="70sp"
+                android:textAlignment="center"
+                android:padding="12dp" />
+
+            <TextView
+                android:id="@+id/flagsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/flagged_time"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:padding="24dp" />
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         style="?android:attr/buttonBarStyle"
@@ -45,7 +46,7 @@
             android:id="@+id/resetButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/reset_button"
             android:textSize="42sp"
             android:padding="24dp"
@@ -55,7 +56,7 @@
             android:id="@+id/stopButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/stop_button"
             android:textSize="42sp"
             android:padding="24dp"
@@ -65,7 +66,7 @@
             android:id="@+id/startButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/start_button"
             android:textSize="42sp"
             android:padding="24dp"
@@ -75,7 +76,7 @@
             android:id="@+id/flagButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/flag_button"
             android:textSize="42sp"
             android:padding="24dp"
@@ -85,11 +86,10 @@
             android:id="@+id/pauseButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/pause_button"
             android:textSize="42sp"
             android:padding="24dp"
             android:visibility="gone" />
-
     </LinearLayout>
 </LinearLayout>
