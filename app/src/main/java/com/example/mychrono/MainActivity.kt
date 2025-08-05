@@ -13,6 +13,7 @@ class MainActivity : ComponentActivity() {
     private var isPaused = false
     private var pauseOffset: Long = 0
     private var count: Int = 0
+    private var totalTime: Long = 0
 
     private lateinit var chronoText: Chronometer
     private lateinit var startButton: Button
@@ -63,6 +64,9 @@ class MainActivity : ComponentActivity() {
             pauseOffset = 0
             isRunning = false
             isPaused = false
+            count = 0
+            totalTime = 0
+            flagsText.text = ""
 
             checkVisibility()
         }
@@ -104,13 +108,16 @@ class MainActivity : ComponentActivity() {
     private fun instanceFlag() {
         count += 1
         val elapsedMillis = SystemClock.elapsedRealtime() - chronoText.base
+        totalTime+= elapsedMillis
+        val totalseconds = (totalTime / 1000) % 60
+        val totalminutes = (totalTime / 1000) / 60
         val minutes = (elapsedMillis / 1000) / 60
         val seconds = (elapsedMillis / 1000) % 60
         var newFlag = "${count}:  "
         if (minutes>0){
             newFlag += "${minutes}' "
         }
-        newFlag += "${seconds}''\n"
+        newFlag += "${seconds}'' | (${totalminutes}:${totalseconds}'')\n"
 
         val currentText = flagsText.text.toString()
         val updatedText = if (count > 10) {
