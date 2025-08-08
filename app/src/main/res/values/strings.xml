@@ -7,4 +7,5 @@
     <string name="pause_button">⏸️</string>
     <string name="flag_button">🏁</string>
     <string name="flagged_time">1\n2\n3\n4\n5\n6\n7\n8\n9\n10</string>
+    <string name="begin_time">Inizio:</string>
 </resources>
