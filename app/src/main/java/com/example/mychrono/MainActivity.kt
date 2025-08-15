@@ -126,7 +126,7 @@ class MainActivity : ComponentActivity() {
     private fun instanceFlag() {
         count += 1
         val elapsedMillis = SystemClock.elapsedRealtime() - chronoText.base
-        totalTime+= elapsedMillis
+        totalTime += elapsedMillis
         val totalseconds = (totalTime / 1000) % 60
         val totalminutes = (totalTime / 1000) / 60
         val minutes = (elapsedMillis / 1000) / 60
@@ -138,7 +138,7 @@ class MainActivity : ComponentActivity() {
         newFlag += "${seconds}'' | (${totalminutes}' ${totalseconds}'')\n"
 
         val currentText = flagsText.text.toString()
-        val updatedText = if (count > 10) {
+        val updatedText = if (count > 100) {
             currentText.substringAfter("\n") + newFlag
         } else {
             currentText + newFlag
